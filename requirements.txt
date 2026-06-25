@@ -1,0 +1,15 @@
+google-generativeai
+langchain
+langchain-google-genai
+langchain-core
+chromadb
+streamlit
+fastapi
+uvicorn
+pymongo
+certifi
+reportlab
+pandas
+python-dotenv
+requests
+pillow

@@ -1,4 +1,26 @@
+# Virtual environment
 venv/
+
+# Python cache
 __pycache__/
 *.pyc
+*.pyo
+
+# Environment variables - never push this
 .env
+
+# ChromaDB - generated database, not source code
+chroma_db/
+
+# Output files
+outputs/
+
+# Images and media
+*.jpeg
+*.jpg
+*.mp4
+*.png
+
+# OS files
+.DS_Store
+Thumbs.db
