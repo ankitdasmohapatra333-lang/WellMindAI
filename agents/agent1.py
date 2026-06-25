@@ -69,42 +69,42 @@ def analyze_physical_wellness(sleep_hours, water_glasses, exercise_minutes, meal
 # ============================================
 # TEST THE AGENT
 # ============================================
+if __name__ == "__main__":
+    print("=" * 50)
+    print("WellMind AI — Agent 1: Physical Wellness")
+    print("=" * 50)
+    print("")
+    print("Student Data Being Analyzed:")
+    print("  Sleep    : 5 hours")
+    print("  Water    : 3 glasses")
+    print("  Exercise : 0 minutes")
+    print("  Meals    : 2")
+    print("")
+    print("Agent 1 analyzing... please wait...")
+    print("")
 
-print("=" * 50)
-print("WellMind AI — Agent 1: Physical Wellness")
-print("=" * 50)
-print("")
-print("Student Data Being Analyzed:")
-print("  Sleep    : 5 hours")
-print("  Water    : 3 glasses")
-print("  Exercise : 0 minutes")
-print("  Meals    : 2")
-print("")
-print("Agent 1 analyzing... please wait...")
-print("")
+    # Run the agent with test data
+    result = analyze_physical_wellness(
+        sleep_hours=5,
+        water_glasses=3,
+        exercise_minutes=0,
+        meals_today=2
+    )
 
-# Run the agent with test data
-result = analyze_physical_wellness(
-    sleep_hours=5,
-    water_glasses=3,
-    exercise_minutes=0,
-    meals_today=2
-)
-
-# Display the result clearly
-print("AGENT 1 RESULT:")
-print("-" * 40)
-print(f"Wellness Score  : {result['wellness_score']} / 100")
-print(f"Status          : {result['status']}")
-print("")
-print("Observations:")
-for i, obs in enumerate(result['observations'], 1):
-    print(f"  {i}. {obs}")
-print("")
-print("Immediate Actions:")
-for i, action in enumerate(result['immediate_actions'], 1):
-    print(f"  {i}. {action}")
-print("")
-print("=" * 50)
-print("Agent 1 completed successfully.")
-print("=" * 50)
+    # Display the result clearly
+    print("AGENT 1 RESULT:")
+    print("-" * 40)
+    print(f"Wellness Score  : {result['wellness_score']} / 100")
+    print(f"Status          : {result['status']}")
+    print("")
+    print("Observations:")
+    for i, obs in enumerate(result['observations'], 1):
+        print(f"  {i}. {obs}")
+    print("")
+    print("Immediate Actions:")
+    for i, action in enumerate(result['immediate_actions'], 1):
+        print(f"  {i}. {action}")
+    print("")
+    print("=" * 50)
+    print("Agent 1 completed successfully.")
+    print("=" * 50)

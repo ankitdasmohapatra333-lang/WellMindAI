@@ -10,7 +10,7 @@ import os
 import json
 import re
 
-load_dotenv()
+load_dotenv(os.path.join(os.path.dirname(__file__), "..", ".env"))
 api_key = os.getenv("GEMINI_API_KEY")
 
 def ask_gemini(prompt):

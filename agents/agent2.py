@@ -39,38 +39,38 @@ def analyze_mental_stress(stress_level, mood, stress_cause):
 # ============================================
 # TEST THE AGENT
 # ============================================
+if __name__ == "__main__":
+    print("=" * 50)
+    print("WellMind AI — Agent 2: Mental Stress")
+    print("=" * 50)
+    print("")
+    print("Student Data Being Analyzed:")
+    print("  Stress Level : 8 / 10")
+    print("  Mood         : Anxious")
+    print("  Cause        : Upcoming exams and project deadline")
+    print("")
+    print("Agent 2 analyzing... please wait...")
+    print("")
 
-print("=" * 50)
-print("WellMind AI — Agent 2: Mental Stress")
-print("=" * 50)
-print("")
-print("Student Data Being Analyzed:")
-print("  Stress Level : 8 / 10")
-print("  Mood         : Anxious")
-print("  Cause        : Upcoming exams and project deadline")
-print("")
-print("Agent 2 analyzing... please wait...")
-print("")
+    result = analyze_mental_stress(
+        stress_level=8,
+        mood="Anxious",
+        stress_cause="Upcoming exams and project deadline"
+    )
 
-result = analyze_mental_stress(
-    stress_level=8,
-    mood="Anxious",
-    stress_cause="Upcoming exams and project deadline"
-)
-
-print("AGENT 2 RESULT:")
-print("-" * 40)
-print(f"Stress Score : {result['stress_score']} / 100")
-print(f"Risk Level   : {result['risk_level']}")
-print("")
-print("Observations:")
-for i, obs in enumerate(result['observations'], 1):
-    print(f"  {i}. {obs}")
-print("")
-print("Coping Recommendations:")
-for i, rec in enumerate(result['coping_recommendations'], 1):
-    print(f"  {i}. {rec}")
-print("")
-print("=" * 50)
-print("Agent 2 completed successfully.")
-print("=" * 50)
+    print("AGENT 2 RESULT:")
+    print("-" * 40)
+    print(f"Stress Score : {result['stress_score']} / 100")
+    print(f"Risk Level   : {result['risk_level']}")
+    print("")
+    print("Observations:")
+    for i, obs in enumerate(result['observations'], 1):
+        print(f"  {i}. {obs}")
+    print("")
+    print("Coping Recommendations:")
+    for i, rec in enumerate(result['coping_recommendations'], 1):
+        print(f"  {i}. {rec}")
+    print("")
+    print("=" * 50)
+    print("Agent 2 completed successfully.")
+    print("=" * 50)

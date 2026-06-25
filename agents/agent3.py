@@ -40,40 +40,40 @@ def analyze_academic_load(study_hours, pending_deadlines, workload_rating, backl
 # ============================================
 # TEST THE AGENT
 # ============================================
+if __name__ == "__main__":
+    print("=" * 50)
+    print("WellMind AI — Agent 3: Academic Load")
+    print("=" * 50)
+    print("")
+    print("Student Data Being Analyzed:")
+    print("  Study Hours       : 2 hours")
+    print("  Pending Deadlines : 3")
+    print("  Workload Rating   : 9 / 10")
+    print("  Backlog Subjects  : 2")
+    print("")
+    print("Agent 3 analyzing... please wait...")
+    print("")
 
-print("=" * 50)
-print("WellMind AI — Agent 3: Academic Load")
-print("=" * 50)
-print("")
-print("Student Data Being Analyzed:")
-print("  Study Hours       : 2 hours")
-print("  Pending Deadlines : 3")
-print("  Workload Rating   : 9 / 10")
-print("  Backlog Subjects  : 2")
-print("")
-print("Agent 3 analyzing... please wait...")
-print("")
+    result = analyze_academic_load(
+        study_hours=2,
+        pending_deadlines=3,
+        workload_rating=9,
+        backlog_subjects=2
+    )
 
-result = analyze_academic_load(
-    study_hours=2,
-    pending_deadlines=3,
-    workload_rating=9,
-    backlog_subjects=2
-)
-
-print("AGENT 3 RESULT:")
-print("-" * 40)
-print(f"Academic Load Score : {result['academic_load_score']} / 100")
-print(f"Burnout Risk         : {result['burnout_risk']}")
-print("")
-print("Observations:")
-for i, obs in enumerate(result['observations'], 1):
-    print(f"  {i}. {obs}")
-print("")
-print("Study Recommendations:")
-for i, rec in enumerate(result['study_recommendations'], 1):
-    print(f"  {i}. {rec}")
-print("")
-print("=" * 50)
-print("Agent 3 completed successfully.")
-print("=" * 50)
+    print("AGENT 3 RESULT:")
+    print("-" * 40)
+    print(f"Academic Load Score : {result['academic_load_score']} / 100")
+    print(f"Burnout Risk         : {result['burnout_risk']}")
+    print("")
+    print("Observations:")
+    for i, obs in enumerate(result['observations'], 1):
+        print(f"  {i}. {obs}")
+    print("")
+    print("Study Recommendations:")
+    for i, rec in enumerate(result['study_recommendations'], 1):
+        print(f"  {i}. {rec}")
+    print("")
+    print("=" * 50)
+    print("Agent 3 completed successfully.")
+    print("=" * 50)
