@@ -3,6 +3,7 @@
 # ============================================
 import sys
 import os
+from concurrent.futures import ThreadPoolExecutor
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'agents')))
 
 from agent1 import analyze_physical_wellness
@@ -18,13 +19,21 @@ def run_full_pipeline(student_name, sleep_hours, water_glasses, exercise_minutes
                        study_hours, pending_deadlines, workload_rating, backlog_subjects,
                        auto_save=True):
     
-    agent1_result = analyze_physical_wellness(sleep_hours, water_glasses, exercise_minutes, meals_today)
-    agent2_result = analyze_mental_stress(stress_level, mood, stress_cause)
-    agent3_result = analyze_academic_load(study_hours, pending_deadlines, workload_rating, backlog_subjects)
+    # Run agents 1, 2, 3 in PARALLEL (they are independent)
+    with ThreadPoolExecutor(max_workers=3) as executor:
+        future_a1 = executor.submit(analyze_physical_wellness, sleep_hours, water_glasses, exercise_minutes, meals_today)
+        future_a2 = executor.submit(analyze_mental_stress, stress_level, mood, stress_cause)
+        future_a3 = executor.submit(analyze_academic_load, study_hours, pending_deadlines, workload_rating, backlog_subjects)
+
+        agent1_result = future_a1.result()
+        agent2_result = future_a2.result()
+        agent3_result = future_a3.result()
     
+    # Agent 4 depends on agents 1-3
     rag_query = f"Sleep status: {agent1_result['status']}, Stress risk: {agent2_result['risk_level']}, Academic burnout risk: {agent3_result['burnout_risk']}"
     agent4_result = rag_knowledge_agent(rag_query)
     
+    # Agent 5 depends on agents 1-4
     agent5_result = generate_recommendation(agent1_result, agent2_result, agent3_result, agent4_result)
     
     full_results = {

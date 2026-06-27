@@ -10,12 +10,20 @@ from datetime import datetime
 load_dotenv(os.path.join(os.path.dirname(__file__), "..", ".env"))
 mongo_uri = os.getenv("MONGO_URI")
 
-client = MongoClient(mongo_uri)
-db = client["wellmind_db"]
-reports_collection = db["reports"]
+client = MongoClient(
+    mongo_uri,
+    serverSelectionTimeoutMS=5000,
+    connectTimeoutMS=5000,
+    socketTimeoutMS=5000,
+) if mongo_uri else None
+db = client["wellmind_db"] if client is not None else None
+reports_collection = db["reports"] if db is not None else None
 
 
 def save_report(student_name, agent_results):
+    if reports_collection is None:
+        raise RuntimeError("MongoDB is not configured. Add MONGO_URI to enable report saving.")
+
     report = {
         "student_name": student_name,
         "timestamp": datetime.now(),
@@ -30,6 +38,9 @@ def save_report(student_name, agent_results):
 
 
 def get_history(student_name):
+    if reports_collection is None:
+        return []
+
     reports = reports_collection.find(
         {"student_name": student_name}
     ).sort("timestamp", -1)

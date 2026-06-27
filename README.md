@@ -1,4 +1,5 @@
 # WellMind AI
+
 **Multi-Agent Student Wellness Intelligence System with RAG**
 
 Built during SSSIA Internship 1 | Team of 8 | June 2026
@@ -6,38 +7,20 @@ Built during SSSIA Internship 1 | Team of 8 | June 2026
 ---
 
 ## What It Does
-WellMind AI analyzes a student's daily physical health, mental stress,
-and academic workload using 5 specialized AI agents in a sequential
-pipeline, grounded in a verified wellness knowledge base via RAG.
+
+WellMind AI analyzes a student's daily physical health, mental stress, and academic workload using 5 specialized AI agents in a sequential pipeline, grounded in a verified wellness knowledge base via RAG.
 
 ---
 
 ## Architecture
-Student Input (Daily Check-In)
 
-↓
-
-Agent 1 — Physical Wellness Agent
-
-↓
-
-Agent 2 — Mental Stress Agent
-
-↓
-
-Agent 3 — Academic Load Agent
-
-↓
-
-Agent 4 — RAG Knowledge Agent (ChromaDB)
-
-↓
-
-Agent 5 — Recommendation Agent
-
-↓
-
-PDF Report + Streamlit Dashboard + MongoDB History
+Student Input (Daily Check-In)  
+-> Agent 1 - Physical Wellness Agent  
+-> Agent 2 - Mental Stress Agent  
+-> Agent 3 - Academic Load Agent  
+-> Agent 4 - RAG Knowledge Agent (ChromaDB)  
+-> Agent 5 - Recommendation Agent  
+-> PDF Report + Streamlit Dashboard + MongoDB History
 
 ## Tech Stack
 
@@ -45,7 +28,7 @@ PDF Report + Streamlit Dashboard + MongoDB History
 |---|---|
 | AI Agents | LangChain + Gemini API (gemini-2.5-flash-lite) |
 | RAG | ChromaDB |
-| Backend | FastAPI (3 routes) |
+| Backend | FastAPI |
 | Database | MongoDB Atlas (pymongo) |
 | Frontend | Streamlit |
 | PDF Reports | ReportLab |
@@ -54,13 +37,14 @@ PDF Report + Streamlit Dashboard + MongoDB History
 ## Team
 
 | Member | Role |
-| Haifa|  Agent 3 - Academic Management|
-| Subham |  Agent 5 + Integration |
-| Ritika | Agent 1 — Physical Wellness |
-| Bhavitha | Agent 2 — Mental Stress |
-| Ankit |  FastAPI Backend + MongoDB |
-| Yaswanth | Agent 4 — RAG + ChromaDB |
-| Sandhya | Frontend — Streamlit |
+|---|---|
+| Haifa | Agent 3 - Academic Management |
+| Subham | Agent 5 + Integration |
+| Ritika | Agent 1 - Physical Wellness |
+| Bhavitha | Agent 2 - Mental Stress |
+| Ankit | FastAPI Backend + MongoDB |
+| Yaswanth | Agent 4 - RAG + ChromaDB |
+| Sandhya | Frontend - Streamlit |
 | Komal | Content + PDF + QA |
 
 ## Setup
@@ -87,11 +71,11 @@ cd agents
 python build_knowledge_base.py
 
 # 6. Start FastAPI backend
-cd backend
+cd ../backend
 uvicorn api:app --reload
 
-# 7. Start Streamlit frontend (new terminal)
-cd frontend/streamlit
+# 7. Start Streamlit frontend in a new terminal
+cd frontend
 streamlit run app.py
 ```
 
@@ -106,7 +90,7 @@ streamlit run app.py
 ## Features
 
 - 5-agent sequential pipeline
-- RAG-grounded wellness knowledge base (31 verified entries)
+- RAG-grounded wellness knowledge base
 - Real-time score analysis with contextual hints
 - PDF wellness report generation
 - 7-day wellness trend dashboard
