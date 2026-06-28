@@ -96,7 +96,7 @@ if __name__ == "__main__":
     print("")
     print("Student Data Being Analyzed:")
     print("  Study Hours       : 2 hours")
-    print("  Pending Deadlines : 3")
+    print("  Pending Deadlines : 4")
     print("  Workload Rating   : 9 / 10")
     print("  Backlog Subjects  : 2")
     print("")
